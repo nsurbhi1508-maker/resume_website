@@ -1,0 +1,436 @@
+/* ---------- 1. COLOUR VARIABLES ---------- */
+:root {
+  --pink: #f7a8c6;
+  --pink-light: #ffe3ee;
+  --maroon: #7a0f3a;
+  --cream: #fff8ee;
+  --cyan: #2bb8c9;
+  --black: #2b1a20;
+  --white: #ffffff;
+}
+
+/* ---------- 2. BASIC RESET (element selectors) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Pink and white stripes in the background */
+body {
+  font-family: "Courier Prime", "Courier New", monospace;
+  color: var(--black);
+  line-height: 1.6;
+  background: repeating-linear-gradient(90deg, var(--pink-light) 0 40px, var(--white) 40px 80px);
+}
+
+a {
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* ---------- 3. TYPOGRAPHY ---------- */
+h1 {
+  font-family: "Pinyon Script", cursive;
+  font-size: 5.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--maroon);
+}
+
+h3 {
+  font-family: "Pinyon Script", cursive;
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--maroon);
+}
+
+h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+
+/* ---------- 4. NAVIGATION BAR (id selector) ---------- */
+#navbar {
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 12px auto 0;
+  padding: 10px 30px;
+  background-color: var(--cream);
+  border: 2px solid var(--pink);
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(122, 15, 58, 0.15);
+}
+
+#navbar ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+#navbar ul a {
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+#navbar ul a:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+/* ---------- 5. LOGO (class selector) ---------- */
+.logo {
+  font-family: "Pinyon Script", cursive;
+  font-size: 2rem;
+}
+
+/* ---------- 6. HERO SECTION ---------- */
+#home {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 20px 40px;
+  animation: fadeUp 1s ease;
+}
+
+/* Polaroid photo frame */
+.polaroid {
+  background-color: var(--white);
+  padding: 14px 14px 10px;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(122, 15, 58, 0.25);
+  transform: rotate(-5deg);
+  text-align: center;
+  transition: transform 0.4s;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.photo {
+  display: block;
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center 40%;
+  background-color: var(--pink);
+}
+
+.polaroid p {
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.5rem;
+  color: var(--maroon);
+}
+
+/* Polka dot card */
+.hero-card {
+  position: relative;
+  max-width: 520px;
+  padding: 50px 36px 36px;
+  background-color: var(--pink-light);
+  background-image: radial-gradient(var(--white) 18%, transparent 20%);
+  background-size: 22px 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(122, 15, 58, 0.2);
+}
+
+/* Washi tape label */
+.tape {
+  position: absolute;
+  top: -16px;
+  left: 30px;
+  padding: 6px 20px;
+  background-color: var(--pink);
+  color: var(--maroon);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transform: rotate(-2deg);
+}
+
+.tagline {
+  color: var(--maroon);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.intro {
+  margin: 14px 0 24px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--maroon);
+  color: var(--cream);
+  padding: 12px 32px;
+  border-radius: 30px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+/* ---------- 7. STICKERS (stars and button) ---------- */
+.star {
+  position: absolute;
+  font-size: 3rem;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.pink-star {
+  top: 20px;
+  left: 6%;
+  color: #e83e8c;
+}
+
+.cyan-star {
+  bottom: 10px;
+  right: 6%;
+  font-size: 2.2rem;
+  color: var(--cyan);
+  animation-delay: 1s;
+}
+
+.button-sticker {
+  position: absolute;
+  top: 30px;
+  right: 8%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--pink);
+  box-shadow: inset -4px -4px 8px rgba(122, 15, 58, 0.25);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* two little holes make it look like a button */
+.button-sticker::before,
+.button-sticker::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--maroon);
+}
+
+.button-sticker::before { left: 18px; }
+.button-sticker::after  { right: 18px; }
+
+/* ---------- 8. SECTIONS ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 50px 0 10px;
+}
+
+.section-title {
+  display: inline-block;
+  margin-bottom: 26px;
+  padding: 0 24px;
+  background-color: var(--cream);
+  border: 2px solid var(--pink);
+  border-radius: 40px;
+}
+
+/* ---------- 9. CARDS ---------- */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--cream);
+  border: 2px dashed var(--pink);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(122, 15, 58, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(122, 15, 58, 0.25);
+}
+
+.year {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 14px;
+  background-color: var(--maroon);
+  color: var(--cream);
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.label {
+  color: var(--cyan);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Paper notes with a slight tilt */
+.note {
+  background-color: var(--white);
+  padding: 26px;
+  border-radius: 4px;
+  border-top: 14px solid var(--pink);
+  box-shadow: 0 6px 14px rgba(122, 15, 58, 0.2);
+  transform: rotate(-1deg);
+  transition: transform 0.3s;
+}
+
+.note:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.note:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* ---------- 10. FEATURE CARDS ---------- */
+.feature-card {
+  background-color: var(--maroon);
+  color: var(--cream);
+  border: 4px solid var(--pink);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.feature-card h4 {
+  color: var(--pink);
+  margin: 10px 0;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+.icon {
+  display: inline-block;
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ---------- 11. TAGS (skills and interests) ---------- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  background-color: var(--pink);
+  color: var(--maroon);
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.tag:hover {
+  background-color: var(--cyan);
+  color: var(--white);
+  transform: scale(1.07);
+}
+
+.tag.outline {
+  background-color: var(--cream);
+  border: 2px solid var(--maroon);
+}
+
+/* ---------- 12. CONTACT AND FOOTER ---------- */
+.contact-card {
+  max-width: 380px;
+  transform: rotate(0deg);
+}
+
+.contact-card p {
+  margin-bottom: 6px;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 24px;
+  text-align: center;
+  background-color: var(--maroon);
+  color: var(--cream);
+  font-size: 0.9rem;
+}
+
+/* ---------- 13. ANIMATIONS ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%      { transform: scale(1.2) rotate(15deg); }
+}
+
+/* ---------- 14. MOBILE SCREENS ---------- */
+@media (max-width: 700px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  #navbar {
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 20px;
+    margin: 10px;
+  }
+
+  #navbar ul {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
